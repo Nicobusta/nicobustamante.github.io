@@ -342,24 +342,21 @@ a{
 
 /* habilidades */
 .icons_habilidades{
-    font-size: 5rem;
+    font-size: 6vw;
     flex-direction: row; 
     text-align: center;    
     display: inline-block;
     position: relative; 
-    margin-left: 3.5rem;
-    margin-right: 3.5rem;
+    margin-left: 4vw;
+    margin-right: 4vw;
 }
 
 .icons_habilidades:hover{
-    font-size: 7rem;
-    transform: rotateY(360deg);
-    transition: transform 0.8s ease-in-out, opacity 1s ease;
+    font-size: 9vw;
 }
 
 .card_habilidades{
     min-height: 50vh;
     display: flex;
     align-items: center;
-    
 }
