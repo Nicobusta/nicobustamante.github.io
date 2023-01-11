@@ -11,4 +11,4 @@ document.getElementById('luna').addEventListener("click", function( ){
     document.getElementById('luna').style.display="none";
     document.getElementById('sol').style.display="block"; 
 });         
-        
+    
