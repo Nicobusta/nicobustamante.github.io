@@ -1,0 +1,362 @@
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* declaracion de variables */
+:root {
+    --color-fuente: #000;
+    --color-fondo: #fff;
+    --color-sombra: rgba(0, 0, 0, 0.16);
+    --color-principal:slategray;
+    --color-nav:rgb(75, 90, 105);
+}
+
+/* cambio de colores en el modo noche */
+[tema="dark"]{
+    --color-fuente: #fff;
+    --color-fondo: #000;
+    --color-sombra: rgba(255, 255, 255, 0.16);
+    --color-principal:#E5E8E8;
+    --color-nav:#b1b3b3;
+}
+
+body{
+    text-rendering: optimizeLegibility;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    background-color:var(--color-fondo);
+    color:var(--color-fuente) 
+}
+
+
+header{
+    background-color: var(--color-principal);
+    max-width: 100%;
+    height: 100vh;
+}
+
+.modo_position{
+    position: absolute;
+    left:90vw;
+    top:4vh;
+}
+
+.modos{
+    font-size: 3vw;
+    color: var(--color-fondo);
+}
+
+/*animacionbacground de inicio*/
+@keyframes spin {
+    0% { transform: rotate(0deg); 
+        margin-top: 0%;  
+    }
+
+    100% { transform: rotate(360deg);
+        margin-top: 100%;
+         }
+      }
+
+.ul_efects{
+    margin:0;
+}
+
+.circle li{
+    position:absolute;
+    border: 1px solid var(--color-fondo);
+    width: 40px; 
+    height: 40px; 
+    border-radius: 8px; 
+    list-style:none;
+} 
+    
+ .circle li {
+    left:5vw;
+    top:-40px;
+    animation-name: spin;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+}   
+    
+.circle li:nth-child(2){ 
+    left: 40vw; 
+    top:-42px;
+    animation-delay:2s;
+}
+  
+.circle li:nth-child(3){ 
+    top:-42px;
+    left: 70vw; 
+    animation-delay:4s;
+}
+    
+.circle li:nth-child(4){
+    left: 80vw; 
+     top:-42px; 
+     animation-delay: 7s;
+}
+     
+.circle li:nth-child(5){ 
+    top:-42px;
+    left :15vw; 
+    animation-delay: 2.5s;
+ }  
+  
+ .circle li:nth-child(6){ 
+    left: 25vw; 
+    top:-42px;
+    animation-delay:5s;
+}
+
+.circle li:nth-child(7){ 
+    left: 55vw; 
+    top:-42px;
+    animation-delay:7.5s;
+} 
+
+/* viewport inicio de pagina */
+.perfil{
+    position: relative;
+    top: 10vh;
+    left: 55vw;
+    width: 25vw;
+	height: auto; 
+    border-radius: 50%;
+	overflow: hidden;
+	box-shadow: 0 5px 5px 0px rgba(0,0,0,0.6);
+	
+}
+img{width: 100%; height: auto; }
+
+
+.cv{
+    position: relative;
+    line-height: 0.5rem;
+    top: -17vh;
+    left: 10vw;
+    max-width: 50vw;
+} 
+
+h1{
+    font-size: 5vw;
+    color:var(--color-fondo) ; 
+}
+
+.lic{
+    font-size: 2.5vw;
+    padding-left: 1rem;
+    color:var(--color-fondo) ; 
+}
+
+.descripcion{
+    font-size: 2.3vw;
+    text-align: center;
+    position: relative;
+    top: -2vh;
+    color:var(--color-fondo) ; 
+}
+
+/* Barra de navegacion */
+nav{
+    position: sticky;
+    top: -1px;
+    margin: 0;
+    z-index: 98;
+}
+
+.nav_pricipal{
+    margin-top: -4vw; 
+    background-color: var(--color-nav);
+    flex-direction: row; 
+    padding: 0.5vw;  
+    text-align: center;    
+    
+}
+
+.nav_pricipal li{ 
+    display: inline-block;
+    position: relative; 
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+li::after{
+    content: '';
+    position:absolute; 
+    width: 100%; 
+    transform: scaleX(0); 
+    height: 3px; 
+    bottom: 0vh; 
+    left: 0; 
+    background-color: var(--color-fondo); 
+    transform-origin: bottom center; 
+    transition: transform 0.25s ease-out;
+}
+
+
+
+li:hover::after{ 
+    transform: scaleX(1);
+    transform-origin:bottom center;
+}
+
+a{
+    color:var(--color-fondo) ;  
+}
+
+.icons_nav{
+    font-size: 2.5vw; 
+    z-index:99;
+}
+
+/* ---------------------------main - datos---------------------------------------*/
+.container { 
+    display: flex;
+     align-items: center; 
+     justify-content: center; 
+     flex-direction: column; 
+     }
+
+.card { 
+    margin-top: 4vh;
+    width: 80vw;
+     height: 50vh; 
+     box-shadow: 0 3px 6px var(--color-sombra), 0 3px 6px var(--color-sombra); 
+     position: relative; 
+     perspective: 1000px; 
+     transform: perspective(1000px) translateY(0); 
+     transform-style: preserve-3d; 
+     transition: transform 0.8s ease-in-out;
+}
+
+
+.card-wrapper:hover .card { 
+    transform: rotateX(179deg);
+     z-index: 2;
+}
+
+.card-wrapper:hover .card .text-overlay { 
+    opacity: 0; 
+    transform-style: preserve-3d;
+     z-index: 1;
+
+}
+
+/* estilo del titulo de la tarjeta */
+.text-overlay { 
+    transform: perspective(1000px) translateY(0) translateZ(80px); 
+    transition: transform 0.85 ease-in-out, opacity 1s ease;  
+    perspective: inherit;
+    min-height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    font-style: italic;
+}
+
+/* estilos de contenido de la tarjeta */
+.card-wrapper:hover .card .purchase-button-container { 
+    opacity: 1;
+}
+
+
+.purchase-button-container { 
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    transform: perspective(1000px) rotateX(179deg) translateX(0) translateZ(80px); 
+    opacity: 0; 
+    z-index: -1; 
+    transition: transform 0.8s ease-in-out, opacity 1s ease;
+    width: 100%;
+    height: 100%;
+}
+
+/* tarjeta datos personales */
+.purchase-button-container .justify_rigth{
+    position: absolute;
+    left: 30vw;
+    top:0vh; 
+}
+
+.purchase-button-container .mapa{
+    position: absolute;
+    left: 60vw;
+    top:0vh; 
+}
+
+.purchase-button-container iframe{
+    width: 20vw;
+    height: 40vh;
+}
+
+.style_text h3{
+    font-size: 1.5vw;
+    
+}
+
+.style_text p{
+    font-size: 1.2vw;
+    
+}
+
+.style_text i{
+ margin-right: 1rem;
+}
+
+.whatsapp{
+    color:#2BB741;
+    font-size: 2.5rem;
+}
+
+.whatsapp:hover{
+    
+    text-shadow:1px 1px 10px #2BB741, 0px 0px 20px #2BB741, 0px 0px 30px #2BB741;
+    color:white;
+}
+
+.mail{
+    color:#0489c9;
+    font-size: 2.5rem;
+}
+
+
+
+.mail:hover{
+    
+    text-shadow:1px 1px 10px #0489c9, 0px 0px 20px #0489c9, 0px 0px 30px #0489c9;
+    color:white;
+}
+
+/* formación_académica */
+.fa-check{
+    color: var(--color-nav);
+}
+
+.formación_academica{
+    margin-top: -8vh;
+
+}
+
+/* habilidades */
+.icons_habilidades{
+    font-size: 6vw;
+    flex-direction: row; 
+    text-align: center;    
+    display: inline-block;
+    position: relative; 
+    margin-left: 4vw;
+    margin-right: 4vw;
+}
+
+.icons_habilidades:hover{
+    font-size: 9vw;
+}
+
+.card_habilidades{
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+}
